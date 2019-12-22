@@ -11,11 +11,11 @@ Docker image usage
 
 run the container with the following
 
-`docker run -e API_TOKEN=123 --name my_container -dit -p 8030:8030 utopman/docker-microservice-html2pdf:latest`
+`docker run -e API_TOKEN=123 -e PORT=8030 --name my_container -dit -p 8030:8030 utopman/docker-microservice-html2pdf:latest`
 
 Then you can generate a pdf with the following command
 
-`wget -O /tmp/my.pdf http://localhost:8030?token=123&url=http://perdu.com`
+`wget -O /tmp/my.pdf "http://localhost:8030?token=123&url=http://perdu.com"`
 
 Development
 -----------
