@@ -37,3 +37,9 @@ Or run it locally by setup python flask app
 and run development server
 
 `make dev`
+
+
+Note
+----
+
+As this project uses a dockerfile with $PORT variable, it is suitable for google cloud run usages.
