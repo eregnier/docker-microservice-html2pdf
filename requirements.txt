@@ -1,0 +1,4 @@
+flask
+WeasyPrint
+python-dotenv
+gunicorn

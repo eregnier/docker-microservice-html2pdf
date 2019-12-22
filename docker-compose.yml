@@ -1,0 +1,10 @@
+version: "3"
+services:
+    diagbat-invoice:
+        ports:
+            - "127.0.0.1:8030:8030"
+        environment:
+            - PORT=8030
+        build: .
+        env_file:
+            - .env
