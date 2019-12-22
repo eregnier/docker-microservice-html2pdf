@@ -34,15 +34,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def document():
-    app.logger.info('owi !')
     token = request.args.get("token", None)
 
     if token is None or os.environ.get("API_TOKEN", None) != token:
         return "Auth error", 403
 
     url = request.args.get("url", None)
-    filename = request.args.get("filename", None)
-    if url is None or filename is None:
+    if url is None:
         return "Bad params", 400
 
     with tempfile.NamedTemporaryFile(mode="wb") as f:
@@ -51,4 +49,4 @@ def document():
         with open(f.name, "rb") as d:
             document = io.BytesIO(d.read())
 
-    return send_file(document, attachment_filename=filename, mimetype="application/pdf")
+    return send_file(document, mimetype="application/pdf")
